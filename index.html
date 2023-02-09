@@ -4,9 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Code Quiz CHallenge</title>
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-  
+
+  <header>
+    <h4 id="view-high-scores">View High Scores</h4> 
+    <h4 class="timer">Time: <span id="timer"></span>    </h4>
+</header>
+
+<div class="page" id="start-container">
+  <h1>Coding Quiz Challenge</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A eius nulla necessitatibus corrupti vitae quos laboriosam repellat voluptatum velit culpa architecto qui fuga deleniti illum, at quia neque consectetur iure.</p>
+  <button id="start-btn">Start Quiz</button>
+</div>
+
+<div class="page hide" id="questions-container">
+  <h2 id="question-text">Question Title</h2>
+  <div id="options-container">
+    <button id="option-1">Option 1</button>
+    <button id="option-2">Option 2</button>
+    <button id="option-3">Option 3</button>
+    <button id="option-4">Option 4</button>
+  </div>
+  <hr/>
+  <p>Correct/Wrong!</p>
+</div>
+
+<div class="page hide" id="end-container">
+  <h2>This is the end cpntainer</h2>
+</div>
+
+<div class="page hide" id="highscore-container">
+
+</div>
+
+
+
+<script src="assets/script.js"></script>
 </body>
 </html>
