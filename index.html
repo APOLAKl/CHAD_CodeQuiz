@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
+<div>
 
   <header>
     <h4 id="view-high-scores">View High Scores</h4> 
@@ -30,18 +30,31 @@
     <button id="option-4">Option 4</button>
   </div>
   <hr/>
+
   <p>Correct/Wrong!</p>
+  <div class="hide" id="correct">
+    <h2>Correct!✔️</h2>
+  </div>
+  <div class="hide" id="wrong">
+    <h2>Wrong!❌</h2>
+  </div>
+
 </div>
 
 <div class="hide" id="end-container">
-  <h2>All done! Page 3</h2>
+  <div class="container end">
+    <h2>All done! Page 3</h2>
+  </div>
+    <form id="initials-form" class="initials">
+      <p> Enter Initials:<input type="text" name="initials" id="initials" class="text-input" />
+      <button class="btn startend" id="sumbit-score" type="submit">Submit</button></p>
+    </form>
+  </div>
 </div>
 
 <div class="hide" id="highscore-container">
 
 </div>
-
-
 
 <script src="assets/script.js"></script>
 </body>

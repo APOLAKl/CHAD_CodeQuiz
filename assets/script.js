@@ -68,6 +68,26 @@ var questions = [
   },
 ];
 
+var setTime = function () {
+  timeleft = 30;
+
+var timercheck = setInterval(function() {
+  timerEl.innerText = timeleft;
+  timeleft--
+
+  if (gameover) {
+      clearInterval(timercheck)
+  }
+ 
+  if (timeleft < 0) {
+      showScore()
+      timerEl.innerText = 0
+      clearInterval(timercheck)
+  }
+
+  }, 1000)
+}
+
 var displayQuestion = function () {
   questionText.textContent = questions[currentIndex].text;
   option1Btn.textContent = questions[currentIndex].options[0]
@@ -102,3 +122,43 @@ option1Btn.addEventListener("click", nextQuestion)
 option2Btn.addEventListener("click", nextQuestion)
 option3Btn.addEventListener("click", nextQuestion)
 option4Btn.addEventListener("click", nextQuestion)
+
+
+var correctEl = document.getElementById("correct")
+var wrongEl = document.getElementById("wrong")
+var score = 0
+
+
+//display correct! on screen
+var answerCorrect = function() {
+  if (correctEl.className = "hide") {
+      correctEl.classList.remove("hide")
+      correctEl.classList.add("banner")
+      wrongEl.classList.remove("banner")
+      wrongEl.classList.add("hide")
+      }
+  }  
+//display wrong! on screen
+var answerWrong = function() {
+  if (wrongEl.className = "hide") {
+      wrongEl.classList.remove("hide")
+      wrongEl.classList.add("banner")
+      correctEl.classList.remove("banner")
+      correctEl.classList.add("hide")
+  }
+}
+
+//check if answer is correct    
+var answerCheck = function(event) {
+  var selectedanswer = event.target
+      if (questions[currentIndex].a === selectedanswer.innerText){
+          answerCorrect()
+          score = score + 3
+      }
+
+      else {
+        answerWrong()
+        score = score - 1;
+        timeleft = timeleft - 3;
+    };
+}
