@@ -2,11 +2,24 @@
   box-sizing: border-box;
 }
 
+#view-high-scores:hover {
+  cursor: pointer;
+  color: violet;
+} 
+
 body {
   background: white;
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 85%;
 }
 
 header h4 {
@@ -48,3 +61,18 @@ header h4 {
 #options-container button {
   width: 70%;
 }
+
+#start-container {
+  padding: 20px;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+#start-btn {
+  background-color: violet;
+  width: 25%;
+  align-items: center;
+  text-align: center;
+}
+

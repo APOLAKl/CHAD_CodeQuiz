@@ -24,8 +24,7 @@ var questions = [
       "c) JavaScript is a compiled language used to make the website interactive",
       "d) None of the mentioned",
     ],
-    answer:
-      "a) JavaScript is a scripting language used to make the website interactive",
+    answer: "a) JavaScript is a scripting language used to make the website interactive"
   },
   {
     text: "Which of the following is correct about JavaScript?",
@@ -35,7 +34,7 @@ var questions = [
       "c) JavaScript is an Object-Oriented language",
       "d) JavaScript is a High-level language",
     ],
-    answer: "a) JavaScript is an Object-Based language",
+    answer: "a) JavaScript is an Object-Based language"
   },
   {
   text: "Arrays in JavaScript are defined by which of the following statements?",
@@ -47,20 +46,27 @@ var questions = [
   ],
   answer: "a) It is an ordered list of values",
   },
+  {
+    text: "What is the basic difference between JavaScript and Java?",
+    options: [
+      "a) Functions are considered as fields",
+      "b) Functions are values, and there is no hard distinction between methods and fields",
+      "c) Variables are specific",
+      "d) There is no difference",
+    ],
+    answer: "b) Functions are values, and there is no hard distinction between methods and fields"
+  },
+  {
+    text: "Which of the following is not javascript data types??",
+    options: [
+      "a) Null type",
+      "b) Undefined type",
+      "c) Number type",
+      "d) All of the mentioned",
+    ],
+    answer: "d) All of the mentioned"
+  },
 ];
-
-var setTime = function () {
-  timeleft = 30;
-
-  var timercheck = setInterval(function () {
-    timerEl.innerText = timeleft;
-    timeleft--;
-
-    if (gameover) {
-      clearInterval(timercheck);
-    }
-  }, 1000);
-};
 
 var displayQuestion = function () {
   questionText.textContent = questions[currentIndex].text;
@@ -96,22 +102,3 @@ option1Btn.addEventListener("click", nextQuestion)
 option2Btn.addEventListener("click", nextQuestion)
 option3Btn.addEventListener("click", nextQuestion)
 option4Btn.addEventListener("click", nextQuestion)
-
-// example questions
-
-
-// 4. Which of the following is not javascript data types?
-// a) Null type
-// b) Undefined type
-// c) Number type
-// d) All of the mentioned
-
-// Answer: d
-
-// 5. What is the basic difference between JavaScript and Java?
-// a) Functions are considered as fields
-// b) Functions are values, and there is no hard distinction between methods and fields
-// c) Variables are specific
-// d) There is no difference
-
-// Answer: b
