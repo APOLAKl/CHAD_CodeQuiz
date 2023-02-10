@@ -106,11 +106,13 @@ var nextQuestion = function(e){
     else {
       answerWrong()
       score = score - 1;
+      timeleft = timeleft - 3;
       currentIndex++;
     };
     if(currentIndex < questions.length) {
       displayQuestion()
     } else {
+      gameover = "true";
       endQuiz();
     }  
 }
@@ -125,6 +127,10 @@ var startQuiz = function () {
 var endQuiz = function () {
   endContainer.classList.remove("hide");
   questionsContainer.classList.add("hide");
+
+  var scoreDisplay = document.createElement("p");
+  scoreDisplay.innerText = ("Your final score is " + score + "!");
+  containerScoreEl.appendChild(scoreDisplay);
 }
 
 startBtn.addEventListener("click", startQuiz);
@@ -142,7 +148,7 @@ var correctBanner = document.querySelector("#correct")
 var wrongBanner = document.querySelector("#wrong")
 
 
-var answerCorrect = function(e) {
+var answerCorrect = function() {
   if (correctEl.className = "hide") {
       correctEl.classList.remove("hide")
       correctEl.classList.add("correctBanner")
