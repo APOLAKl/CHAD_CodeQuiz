@@ -11,6 +11,7 @@ var option4Btn = document.querySelector("#option-4")
 
 var timeleft;
 var gameover;
+var score = 0
 timerEl.innerText = 0;
 
 var currentIndex = 0;
@@ -96,13 +97,22 @@ var displayQuestion = function () {
   option4Btn.textContent = questions[currentIndex].options[3]
 }
 
-var nextQuestion = function () {
-  currentIndex++;
-  if(currentIndex < questions.length) {
-    displayQuestion()
-  } else {
-    endQuiz();
-  }
+var nextQuestion = function(e){
+  if(questions[currentIndex].answer === e.target.textContent){
+    answerCorrect()
+    score = score + 3
+    currentIndex++
+    }
+    else {
+      answerWrong()
+      score = score - 1;
+      currentIndex++;
+    };
+    if(currentIndex < questions.length) {
+      displayQuestion()
+    } else {
+      endQuiz();
+    }  
 }
 
 var startQuiz = function () {
@@ -126,39 +136,26 @@ option4Btn.addEventListener("click", nextQuestion)
 
 var correctEl = document.getElementById("correct")
 var wrongEl = document.getElementById("wrong")
-var score = 0
 
 
-//display correct! on screen
-var answerCorrect = function() {
+var correctBanner = document.querySelector("#correct")
+var wrongBanner = document.querySelector("#wrong")
+
+
+var answerCorrect = function(e) {
   if (correctEl.className = "hide") {
       correctEl.classList.remove("hide")
-      correctEl.classList.add("banner")
-      wrongEl.classList.remove("banner")
+      correctEl.classList.add("correctBanner")
+      wrongEl.classList.remove("correctBanner")
       wrongEl.classList.add("hide")
       }
   }  
-//display wrong! on screen
+
 var answerWrong = function() {
   if (wrongEl.className = "hide") {
       wrongEl.classList.remove("hide")
-      wrongEl.classList.add("banner")
-      correctEl.classList.remove("banner")
+      wrongEl.classList.add("wrongBanner")
+      correctEl.classList.remove("wrongBanner")
       correctEl.classList.add("hide")
   }
-}
-
-//check if answer is correct    
-var answerCheck = function(event) {
-  var selectedanswer = event.target
-      if (questions[currentIndex].a === selectedanswer.innerText){
-          answerCorrect()
-          score = score + 3
-      }
-
-      else {
-        answerWrong()
-        score = score - 1;
-        timeleft = timeleft - 3;
-    };
 }
